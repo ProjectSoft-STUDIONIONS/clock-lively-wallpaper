@@ -1,0 +1,17 @@
+node_modules
+bower_components
+test
+tests
+temp
+tmp
+*.sublime-workspace
+*-lock.json
+*.mp4
+*.zip
+dest/*
+!dest/.gitignore
+src/test
+src/temp
+src/tmp
+src/vds
+src/videos/*

@@ -1,0 +1,38 @@
+{
+	"name": "clock-lively-wallpaper",
+	"version": "1.0.3",
+	"description": "Часы на рабочий стол для Lively Wallpaper",
+	"main": "Gruntfile.js",
+	"scripts": {
+		"test": "echo \"Test Clock Lively Walpaper\" && exit 0",
+		"build": "grunt -v",
+		"inst": "npm install && bower install"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ProjectSoft-STUDIONIONS/clock-lively-wallpaper.git"
+	},
+	"author": "ProjectSoft <projectsoft2009@yandex.ru>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ProjectSoft-STUDIONIONS/clock-lively-wallpaper/issues"
+	},
+	"homepage": "https://github.com/ProjectSoft-STUDIONIONS/clock-lively-wallpaper#readme",
+	"devDependencies": {
+		"grunt": "^1.6.1",
+		"grunt-contrib-clean": "^2.0.1",
+		"grunt-contrib-compress": "^2.0.0",
+		"grunt-contrib-copy": "^1.0.0",
+		"grunt-contrib-cssmin": "^5.0.0",
+		"grunt-contrib-imagemin": "^4.0.0",
+		"grunt-contrib-less": "^3.0.0",
+		"grunt-contrib-pug": "^3.0.0",
+		"grunt-contrib-uglify-es": "^3.3.0",
+		"grunt-contrib-watch": "^1.1.0",
+		"grunt-file-creator": "^0.1.3",
+		"less-plugin-npm-import": "^2.1.0",
+		"load-grunt-tasks": "^5.1.0",
+		"md5": "^2.3.0",
+		"time-grunt": "github:ProjectSoft-STUDIONIONS/time-grunt"
+	}
+}

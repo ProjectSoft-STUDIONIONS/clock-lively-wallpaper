@@ -1,0 +1,44 @@
+html, body {
+	position: relative;
+	padding: unset;
+	margin: unset;
+	width:  100vw;
+	height: 100vh;
+}
+body {
+	background-color: black;
+	&.offlain {
+		video {
+			/*display: none;*/
+			opacity: 1;
+		}
+	}
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+video {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	object-fit: cover;
+	opacity: 1;
+}
+canvas {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999999;
+}
+#info {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+}

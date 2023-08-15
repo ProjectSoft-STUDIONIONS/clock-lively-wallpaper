@@ -1,0 +1,17 @@
+{
+	"name": "clock-lively-wallpaper",
+	"description": "Часы на рабочий стол для Lively Wallpaper",
+	"main": "Gruntfile.js",
+	"authors": [
+		"ProjectSoft <projectsoft2009@yandex.ru>"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/ProjectSoft-STUDIONIONS/clock-lively-wallpaper",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	]
+}

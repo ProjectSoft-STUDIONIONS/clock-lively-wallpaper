@@ -1,0 +1,15 @@
+doctype html
+html(lang="ru")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		title
+			|Часы на рабочий стол
+		link(rel="stylesheet" href="css/style.css?"+hash)
+	body
+		#info
+		//video(id="video-clock" preload="auto" autoplay="autoplay" loop="loop" muted="muted" src="videos/ioweb.webm")
+			source( type="video/webm")
+		canvas#canvas-clock
+		script(type="text/javascript" src="js/main.js?"+hash)
