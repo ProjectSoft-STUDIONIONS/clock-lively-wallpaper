@@ -7,6 +7,12 @@ html(lang="ru")
 		title
 			|Часы на рабочий стол
 		link(rel="stylesheet" href="css/style.css?"+hash)
+		script(type="text/javascript")
+			|function livelyCurrentTrack(data) {
+			|	let obj = JSON.parse(data);
+			|	console.log(obj);
+			|}
+			|console.log("INIT SCRIPT")
 	body
 		#info
 		//video(id="video-clock" preload="auto" autoplay="autoplay" loop="loop" muted="muted" src="videos/ioweb.webm")

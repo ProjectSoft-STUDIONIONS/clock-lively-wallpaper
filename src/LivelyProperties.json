@@ -1,4 +1,20 @@
 {
+	"transX": {
+		"text": "Положение по X",
+		"value": 50,
+		"type": "slider",
+		"min": 0,
+		"max": 100,
+		"step": 0.01
+	},
+	"transY": {
+		"text": "Положение по Y",
+		"value": 50,
+		"type": "slider",
+		"min": 0,
+		"max": 100,
+		"step": 0.01
+	},
 	"radius": {
 		"text": "Масштаб циферблата",
 		"value": 0.669,
@@ -204,10 +220,10 @@
 	},
 	"speed": {
 		"text": "Скорость минутной стрелки",
-		"value": 100,
+		"value": 1000,
 		"type": "slider",
-		"min": 10,
+		"min": 1,
 		"max": 1000,
-		"step": 10
+		"step": 1
 	}
 }

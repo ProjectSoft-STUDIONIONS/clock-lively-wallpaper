@@ -1,5 +1,7 @@
 !(function(cnv){
 	const obj = {
+			transX              : 50,
+			transY              : 50,
 			bgImgChk            : true,
 			numCheck            : true,
 			strokCheck          : true,
@@ -30,7 +32,8 @@
 			lineMinuteWidth     : 0.04,
 			secondLength        : 0.9,
 			munuteLength        : 0.8,
-			hourLength          : 0.5
+			hourLength          : 0.5,
+			speed               : 100
 		},
 		canvas = document.getElementById(cnv),
 		//video = document.getElementById("video"),
@@ -141,7 +144,7 @@
 		},
 		setStyles = function()
 		{
-			styleSheetWriter.clear();
+			//styleSheetWriter.clear();
 			styleSheetWriter.setRule('body', 'background-image', 'unset');
 			if(obj.bgImgChk){
 				styleSheetWriter.setRule('body', 'background-color', "#000000");
@@ -168,7 +171,12 @@
 			ctx.setTransform(1, 0, 0, 1, 0, 0);
 			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 			!obj.bgImgChk && play();
-			ctx.translate(ctx.canvas.width / 2, canvas.height / 2);
+			//ctx.translate(ctx.canvas.width / 2, canvas.height / 2);
+			let x = (ctx.canvas.width * obj.transX) / 100,
+				y = (ctx.canvas.height * obj.transY) / 100;
+			//x = ((x * 100) / obj.transX) / 2;
+			//y = ((y * 100) / obj.transY) / 2;
+			ctx.translate(x, y);
 			drawFace(ctx, radius, hexToRgbA(obj.bgColor, obj.bgAlpha));
 			drawNumbers(ctx, radius, hexToRgbA(obj.numColor, obj.numAlpha));
 			drawTime(ctx, radius);
@@ -258,6 +266,7 @@
 			let milliseconds = now.getMilliseconds();
 			hour = (hour * Math.PI / 6) + (minute * Math.PI / (6 * 60)) + (second * Math.PI / (360 * 60));
 			minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+			//let speed = ((milliseconds % obj.speed) * Math.PI) / (30 * 1000);// * obj.speed) / 100;
 			second = (second * Math.PI / 30) + (milliseconds * Math.PI / (30 * 1000));
 			// Нужно сделать!!! Задать скорость секундной стрелки.
 			/*
@@ -306,6 +315,7 @@
 			setVideo();
 			setStyles();
 			resize();
+			console.log("INITIALIZED");
 		},
 		scaleByPixelRatio = function(_number)
 		{
@@ -313,9 +323,26 @@
 			return Math.floor(_number * pixelRatio);
 		};
 	window.livelyPropertyListener = function(name, val) {
+		/* Конфигурация */
 		obj[name] = val;
 		setVideo();
 		setStyles();
 	}
+	//window.livelyWallpaperPlaybackChanged = function(arg, tr) {
+		/* Старт стоп воспроизведения обоев) */
+		// Почему-то не работает
+	//	let str = arg ? "red" : "yellow";
+	//	styleSheetWriter.setRule('canvas', 'border', '3px solid ' + str);
+	//}
+	
+	//livelySystemInformation /* Системная информация */
+	//livelyCurrentTrack /* Данные о воспроизводимом треке */
+	//livelyAudioListener /* Данные для audio vizualizer */
 	init();
 }("canvas-clock"));
+//function livelyCurrentTrack(data) {
+//	console.log(data);
+//}
+//function livelyAudioListener(a, b) {
+//	console.log(a, b);
+//}

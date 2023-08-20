@@ -55,7 +55,7 @@ module.exports = function(grunt) {
 			options: {
 				sourceMap: false,
 				compress: {
-					drop_console: true
+					drop_console: false
 	  			}
 			},
 			app: {
