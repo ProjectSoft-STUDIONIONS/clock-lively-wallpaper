@@ -19,7 +19,7 @@
 			nameFont            : "fonts\\0016.ttf",
 			sizeFont            : 0.2,
 			speed               : 10,
-			videoSelect         : "videos\\rt.mp4",
+			videoSelect         : "videos\\ioweb.mp4",
 			radius              : 0.5,
 			numRadius           : 0.75,
 			hourWidth           : 0.005,
@@ -36,7 +36,7 @@
 			speed               : 100
 		},
 		canvas = document.getElementById(cnv),
-		//video = document.getElementById("video"),
+		video = document.getElementById("video-clock"),
 		ctx = canvas.getContext("2d"),
 		el = canvas.parentElement;
 	let font,
@@ -99,28 +99,29 @@
 			}
 		)(),
 		play = function(){
-			//let isPlaying = !video.paused && !video.ended;
-			//!isPlaying && video.play().then(function(){}).catch(function(error){});
+			let isPlaying = !video.paused && !video.ended;
+			!isPlaying && video.play().then(function(){}).catch(function(error){});
 		},
 		setVideo = function()
 		{
 			//let isPlaying = !video.paused && !video.ended;
 			if(!obj.bgImgChk){
 				document.body.classList.contains('offlain') && document.body.classList.remove('offlain');
-				//if(tmpVideo != obj["videoSelect"].replace('\\', '/')) {
-				//	tmpVideo = obj["videoSelect"].replace('\\', '/');
-					//video.src = tmpVideo;
-					//video.currentTime = 0;
-					//video.muted = true;
-				//}
+				if(tmpVideo != obj["videoSelect"].replace('\\', '/')) {
+					tmpVideo = obj["videoSelect"].replace('\\', '/');
+					video.src = tmpVideo;
+					video.currentTime = 0;
+					video.muted = true;
+				}
+				play();
 			}else{
-				//tmpVideo = obj["videoSelect"].replace('\\', '/');
-				//video.src = tmpVideo;
-				//video.currentTime = 0;
-				//video.muted = true;
+				tmpVideo = obj["videoSelect"].replace('\\', '/');
+				video.src = tmpVideo;
+				video.currentTime = 0;
+				video.muted = true;
 				!document.body.classList.contains('offlain') && document.body.classList.add('offlain');
+				video.pause();
 			}
-			play();
 		},
 		setFontSize = function()
 		{
@@ -171,9 +172,9 @@
 			ctx.setTransform(1, 0, 0, 1, 0, 0);
 			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 			!obj.bgImgChk && play();
-			//ctx.translate(ctx.canvas.width / 2, canvas.height / 2);
 			let x = (ctx.canvas.width * obj.transX) / 100,
 				y = (ctx.canvas.height * obj.transY) / 100;
+			//ctx.translate(ctx.canvas.width / 2, canvas.height / 2);
 			//x = ((x * 100) / obj.transX) / 2;
 			//y = ((y * 100) / obj.transY) / 2;
 			ctx.translate(x, y);
@@ -211,8 +212,6 @@
 					linWidth = radius * obj.strockHourWidth;
 					ctx.lineWidth = linWidth < minWidth ? minWidth : linWidth;
 					ctx.moveTo(radius,0);
-					// obj.lineHourWidth : 0.1,
-					// obj.lineMinuteWidth: 0.04
 					ctx.lineTo(radius - (radius * obj.lineHourWidth), 0);
 					ctx.stroke();
 					for(tick = 1; tick < 5; tick++){
@@ -266,18 +265,8 @@
 			let milliseconds = now.getMilliseconds();
 			hour = (hour * Math.PI / 6) + (minute * Math.PI / (6 * 60)) + (second * Math.PI / (360 * 60));
 			minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
-			//let speed = ((milliseconds % obj.speed) * Math.PI) / (30 * 1000);// * obj.speed) / 100;
 			second = (second * Math.PI / 30) + (milliseconds * Math.PI / (30 * 1000));
 			// Нужно сделать!!! Задать скорость секундной стрелки.
-			/*
-			hourWidth   : 0.005,
-			munuteWidth : 0.005,
-			secondWidth : 0.005
-			
-			secondLength
-			munuteLength
-			hourLength
-			*/
 			drawHand(ctx, hour, radius * obj.hourLength, radius * obj.hourWidth, hexToRgbA(obj.hourColor, obj.handAlpha));
 			drawHand(ctx, minute, radius * obj.munuteLength, radius * obj.munuteWidth, hexToRgbA(obj.minuteColor, obj.handAlpha));
 			drawHand(ctx, second, radius * obj.secondLength, radius * obj.secondWidth, hexToRgbA(obj.secondColor, obj.handAlpha));
@@ -323,7 +312,6 @@
 			return Math.floor(_number * pixelRatio);
 		};
 	window.livelyPropertyListener = function(name, val) {
-		/* Конфигурация */
 		obj[name] = val;
 		setVideo();
 		setStyles();
@@ -340,9 +328,3 @@
 	//livelyAudioListener /* Данные для audio vizualizer */
 	init();
 }("canvas-clock"));
-//function livelyCurrentTrack(data) {
-//	console.log(data);
-//}
-//function livelyAudioListener(a, b) {
-//	console.log(a, b);
-//}

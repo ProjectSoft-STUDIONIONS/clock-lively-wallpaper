@@ -15,3 +15,8 @@ src/temp
 src/tmp
 src/vds
 src/videos/*
+!src/videos/ort.webm
+!src/videos/ioweb.webm
+!src/videos/fire.webm
+!src/videos/earth.webm
+!src/videos/svet-line.webm

@@ -140,6 +140,13 @@
 		"value": true,
 		"text": "Использовать общий фон"
 	},
+	"videoSelect": {
+		"type": "folderDropdown",
+		"value": "ioweb.webm",
+		"text": "Изображение для фона",
+		"filter": "*.webm",
+		"folder": "videos"
+	},
 	"imgSelect": {
 		"type": "folderDropdown",
 		"value": "3dhuman.jpg",

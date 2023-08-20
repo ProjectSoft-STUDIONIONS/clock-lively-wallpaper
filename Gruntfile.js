@@ -28,8 +28,8 @@ module.exports = function(grunt) {
 			"cssmin",
 			"copy",
 			"pug",
-			"file-creator",
 			"compress",
+			"file-creator",
 		]
 	},
 	NpmImportPlugin = require("less-plugin-npm-import");
@@ -131,14 +131,14 @@ module.exports = function(grunt) {
 						],
 						dest: 'dest/fonts/',
 					},
-					/*{
+					{
 						expand: true,
 						cwd: 'src/videos',
 						src: [
 							'*.webm'
 						],
 						dest: 'dest/videos/',
-					},*/
+					},
 					{
 						expand: true,
 						cwd: 'src',
