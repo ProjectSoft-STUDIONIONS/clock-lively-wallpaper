@@ -201,7 +201,11 @@ module.exports = function(grunt) {
 		"file-creator": {
 			basic: {
 				'dest/.gitignore': function(fs, fd, done) {
-					fs.writeSync(fd, '*.*\r**/*\r');
+					fs.writeSync(fd, 
+`*.*
+**/*
+`
+					);
 					done();
 				}
 			}
