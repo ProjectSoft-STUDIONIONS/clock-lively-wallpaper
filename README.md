@@ -32,3 +32,12 @@ npm run build
 <p>
 	<img src="src/screen/default.png" alt="Заставка озеро, горы">
 </p>
+<p>
+	<img src="src/screen/wallpaper-01.png" alt="Заставка Demiart Wallpaper">
+</p>
+<p>
+	<img src="src/screen/wallpaper-02.png" alt="Заставка Demiart Wallpaper">
+</p>
+<p>
+	<img src="src/screen/wallpaper-03.png" alt="Заставка Demiart Wallpaper">
+</p>
