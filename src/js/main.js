@@ -55,6 +55,7 @@
 		videoContainer.drawing = obj.bgImgChk;
 	}*/
 	
+	
 	const match = /\d+(?:\.\d+)?/,
 		styleSheetWriter = (
 			function () {
