@@ -12,9 +12,8 @@ html(lang="ru")
 			|	let obj = JSON.parse(data);
 			|	console.log(obj);
 			|}
-			|console.log("INIT SCRIPT")
 	body
 		#info
-		video(id="video-clock" preload="auto" autoplay="autoplay" loop="loop" muted="muted" src="videos/ioweb.webm")
+		//video(id="video-clock" preload="auto" autoplay="autoplay" loop="loop" muted="muted" src="videos/ioweb.webm")
 		canvas#canvas-clock
 		script(type="text/javascript" src="js/main.js?"+hash)

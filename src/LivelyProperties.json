@@ -135,18 +135,6 @@
 		"max": 0.47,
 		"step": 0.01
 	},
-	"bgImgChk": {
-		"type": "checkbox",
-		"value": true,
-		"text": "Использовать общий фон"
-	},
-	"videoSelect": {
-		"type": "folderDropdown",
-		"value": "ioweb.webm",
-		"text": "Изображение для фона",
-		"filter": "*.webm",
-		"folder": "videos"
-	},
 	"imgSelect": {
 		"type": "folderDropdown",
 		"value": "3dhuman.jpg",

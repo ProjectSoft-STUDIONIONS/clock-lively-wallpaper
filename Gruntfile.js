@@ -131,14 +131,14 @@ module.exports = function(grunt) {
 						],
 						dest: 'dest/fonts/',
 					},
-					{
+					/*{
 						expand: true,
 						cwd: 'src/videos',
 						src: [
 							'*.webm'
 						],
 						dest: 'dest/videos/',
-					},
+					},*/
 					{
 						expand: true,
 						cwd: 'src',

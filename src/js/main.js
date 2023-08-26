@@ -99,28 +99,32 @@
 			}
 		)(),
 		play = function(){
-			let isPlaying = !video.paused && !video.ended;
-			!isPlaying && video.play().then(function(){}).catch(function(error){});
+			if(video){
+				let isPlaying = !video.paused && !video.ended;
+				!isPlaying && video.play().then(function(){}).catch(function(error){});
+			}
 		},
 		setVideo = function()
 		{
+			if(video){
 			//let isPlaying = !video.paused && !video.ended;
-			if(!obj.bgImgChk){
-				document.body.classList.contains('offlain') && document.body.classList.remove('offlain');
-				if(tmpVideo != obj["videoSelect"].replace('\\', '/')) {
+				if(!obj.bgImgChk){
+					document.body.classList.contains('offlain') && document.body.classList.remove('offlain');
+					if(tmpVideo != obj["videoSelect"].replace('\\', '/')) {
+						tmpVideo = obj["videoSelect"].replace('\\', '/');
+						video.src = tmpVideo;
+						video.currentTime = 0;
+						video.muted = true;
+					}
+					play();
+				}else{
 					tmpVideo = obj["videoSelect"].replace('\\', '/');
 					video.src = tmpVideo;
 					video.currentTime = 0;
 					video.muted = true;
+					!document.body.classList.contains('offlain') && document.body.classList.add('offlain');
+					video.pause();
 				}
-				play();
-			}else{
-				tmpVideo = obj["videoSelect"].replace('\\', '/');
-				video.src = tmpVideo;
-				video.currentTime = 0;
-				video.muted = true;
-				!document.body.classList.contains('offlain') && document.body.classList.add('offlain');
-				video.pause();
 			}
 		},
 		setFontSize = function()
@@ -304,7 +308,7 @@
 			setVideo();
 			setStyles();
 			resize();
-			console.log("INITIALIZED");
+			//console.log("INITIALIZED");
 		},
 		scaleByPixelRatio = function(_number)
 		{
